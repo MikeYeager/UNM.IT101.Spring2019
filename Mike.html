@@ -1,0 +1,35 @@
+<h1>This is H1 Text</h1>
+<h2>This is Mike's Web Page</h2>
+<!--<h3>This line is even smaller. It's H3.</h3>
+<img src="SamplePicture.png" height="50%" />
+<br>
+This is a <i><b>really</b> long line</i> of <u>text</u> and it will wrap around because it is soooooo long...
+<a href="http://google.com">Go to Google</a>
+<video width=320 height=240 controls>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4"
+     type="video/mp4">
+</video>-->
+<br>
+<input type="button" 
+        value="Red Chile" 
+        style="background-color: red"
+        onclick="makePageRed()" >
+<input type="button" 
+        value="Green Chile" 
+        style="background-color: green"
+        onclick="makePageGreen()" >
+
+<script>
+    function makePageRed() {
+        alert("You are ABOUT to choose Red!!!!");
+        if (confirm("Are you sure?")) {
+            document.body.style.backgroundColor = "red";
+        } else {
+            document.body.style.backgroundColor = "white";
+        }
+    }
+    function makePageGreen() {
+        window.location="https://google.com";
+        document.body.style.backgroundColor = "green";
+    }
+</script>
