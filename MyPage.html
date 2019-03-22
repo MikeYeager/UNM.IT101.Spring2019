@@ -1,0 +1,21 @@
+<h1>Hello world!</h1>
+<h2 id="TheSubtitle">This is a subheading</h2>
+<input type="button" 
+        id="MyColorButton"
+        value="Press me!" 
+        style="background-color: green"
+        onclick="makePageRed()" />
+
+<script>
+    function makePageRed() {
+        //debugger;
+        document.body.style.backgroundColor = "red";
+
+        var theButton = document.getElementById("MyColorButton");
+        theButton.style.backgroundColor = "yellow";
+
+        var theSubtitle = document.getElementById("TheSubtitle");
+        alert("The Subtitle is: " + theSubtitle.innerHTML);
+        theSubtitle.innerHTML = "The page color is: " + document.body.style.backgroundColor;
+    }
+</script>
