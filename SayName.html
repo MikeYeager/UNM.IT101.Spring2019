@@ -1,0 +1,31 @@
+First Name: <input type="text" id="FirstName"> Last Name: <input type="text" id="LastName">
+<br>
+<input type="button" value="Say Name" onclick="SayName()" />
+<input type="button" value="Say Name in all CAPS" onclick="SayNameInAllCaps()" />
+<input type="button" value="Say Name in italics" onclick="SayNameInItalics()" />
+<br><br>
+<h1 id="Output">....</h1>
+
+<script>
+    function SayName() {
+        var fullName = GetFullName();
+        alert(fullName);
+    }
+    function SayNameInAllCaps() {
+        var fullName = GetFullName(); 
+        var fullName = fullName.toUpperCase();
+        var output = document.getElementById("Output");
+        output.innerHTML = fullName;
+    }
+    function SayNameInItalics() {
+        var fullName = GetFullName();
+        var output = document.getElementById("Output");
+        output.innerHTML = "<i>" + fullName + "</i>";
+    }
+    function GetFullName() {
+        var firstName = document.getElementById("FirstName");
+        var lastName = document.getElementById("LastName");
+        var fullName = firstName.value.trim() + " " + lastName.value.trim();
+        return fullName;
+    }
+</script>

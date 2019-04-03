@@ -1,0 +1,71 @@
+<h1>Vote for your favorit chile</h1>
+
+<input type="button" 
+        value="Red Chile" 
+        style="background-color: red"
+        onclick="makePageRed()" >
+<input type="button" 
+        value="Green Chile" 
+        style="background-color: green"
+        onclick="makePageGreen()" >
+<br>
+<input type="text" id="FullName" >
+<input type="button"
+        value="Is Letter Y?"
+        onclick="isLetterY()" >
+<br>
+<input type="number" id="FirstNumber">
+ + 
+<input type="number" id="SecondNumber">
+ = 
+<input type="button" value="Go" onclick="AddEm()">
+<div id="Answer">...</div>
+
+<script>
+    function AddEm() {
+        var firstNumber = document.getElementById("FirstNumber").value;
+        var secondNumber = document.getElementById("SecondNumber").value;
+        var answer = document.getElementById("Answer");
+
+        var theSum = Number(firstNumber) + Number(secondNumber);
+        answer.innerHTML = theSum.toString();
+    }
+
+    function isLetterY() {
+        var fullName = document.getElementById("FullName").value;
+
+        if (fullName.length < 4) {
+            alert("Please type in a name first!");
+            return;
+        }
+
+        for (var counter = 0; counter < fullName.length; counter++) {
+            var currentLetter = fullName.substr(counter, 1);
+            if (currentLetter === "Y") {
+                console.log("Yes");
+            } else {
+                console.log("No");
+            }
+        }
+    }
+
+    var counter = 0;
+
+    function makePageRed() {
+        counter = counter + 1;
+        if (counter > 2) {
+            document.body.style.backgroundColor = "red";
+            counter = 0;
+        } else {
+            document.body.style.backgroundColor = "white";
+        }
+    }
+
+    function makePageGreen() {
+        document.body.style.backgroundColor = "green";
+
+        for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }
+    }
+</script>
