@@ -1,0 +1,35 @@
+<h1>Name Collection Form</h1>
+First Name: <input type="text" id="FirstName"> 
+Last Name: <input type="text" id="LastName">
+<br><br>
+<input type="button" value="Submit Form" onclick="SubmitForm()" >
+<input type="button" value="Show Names" onclick="ShowNames()">
+<input type="button" value="Reset Form" onclick="ResetForm()">
+<br><br>
+<div id="Results"></div>
+
+<script>
+    //This is a comment - https://github.com/MikeYeager/UNM.IT101.Spring2019
+    var namesArray = [];
+    var firstNameTextBox = document.getElementById("FirstName");
+    var lastNameTextBox = document.getElementById("LastName");
+    var resultsTag = document.getElementById("Results");
+
+    function SubmitForm() {
+        var fullName = firstNameTextBox.value.trim() 
+            + " " 
+            + lastNameTextBox.value.trim();
+        namesArray.push(fullName);
+    }
+
+    function ShowNames() {
+        resultsTag.innerHTML = namesArray;
+    }
+
+    function ResetForm() {
+        namesArray = [];
+        firstNameTextBox.value = "";
+        lastNameTextBox.value = "";
+        resultsTag.innerHTML = "";
+    }
+</script>

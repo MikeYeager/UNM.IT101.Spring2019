@@ -1,0 +1,43 @@
+<h1>March 29 Assignment</h1>
+<h2>Collect List Of Names</h2>
+First Name: <input type="text" id="FirstName"> Last Name: <input type="text" id="LastName">
+<br><br>
+<input type="button" value="Save Name" id="SaveButton" onclick="SaveName()">
+<br><br>
+<input type="button" value="Show Names Collected" onclick="ShowNamesCollected()">
+<input type="button" value="Reset Form" onclick="ResetForm()">
+<br>
+<h3 id="Title"></h3>
+<div id="NamesList"></div>
+
+<script>
+    var firstNameTag = document.getElementById("FirstName");
+    var lastNameTag = document.getElementById("LastName");
+    var titleTag = document.getElementById("Title");
+    var namesListTag = document.getElementById("NamesList");
+
+    var nameArray = [];
+
+    function SaveName() {
+        var fullName = firstNameTag.value.trim() + " " + lastNameTag.value.trim();
+        nameArray.push(fullName);
+        alert(fullName + " was saved!");
+    }
+
+    function ShowNamesCollected() {
+        namesListTag.innerHTML = "";
+
+        if (nameArray.length === 0) {
+            titleTag.innerHTML = "No Names Have Been Collected";
+        } else {
+            titleTag.innerHTML = "Names Collected:";
+            namesListTag.innerHTML = nameArray;
+        }
+    }
+
+    function ResetForm() {
+        nameArray = [];
+        titleTag.innerHTML = "";
+        namesListTag.innerHTML = "";
+    }
+</script>
