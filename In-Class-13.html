@@ -1,0 +1,24 @@
+<h1>how's your day?</h1> 
+<input type="number" id="braazzyyy" value="3">bro
+<input type="number" id="ClOUt"value="5">click
+<input type="number" id="TrACk" value="10000">here
+<input type="button" value="RuNNiNg" onclick="ClIckhEre()">
+<div id="GIBI"> </div>
+<script> 
+    function ClIckhEre() {
+        var firstbox=document.getElementById("braazzyyy");
+        var secondbox=document.getElementById("ClOUt");
+        var thirdbox=document.getElementById("TrACk");
+        var answertag=document.getElementById("GIBI");
+        var Sum=0;
+        for (let  counter= firstbox.valueAsNumber; counter < thirdbox.valueAsNumber;
+         counter=counter+firstbox.valueAsNumber) {
+            Sum=Sum+counter;
+        }
+        for (let  counter= secondbox.valueAsNumber; counter < thirdbox.valueAsNumber;
+         counter=counter+secondbox.valueAsNumber) {
+            Sum=Sum+counter;
+        }
+        answertag.innerHTML=Sum;
+    }
+</script>

@@ -1,0 +1,74 @@
+<h1>Euler Problem 1</h1>
+
+Find the sum of multiples of: 
+<input type="number" id="FirstNumber" value=3>
+ and 
+<input type="number" id="SecondNumber" value=5>
+ below 
+ <input type="number" id="Below" value=1000>
+<input type="button" value="Go" onclick="Go()">
+<h1 id="Answer1"></h1>
+<h1 id="Answer2"></h1>
+
+<script>
+  // If we list all the natural numbers below 10 that are multiples of 3 or 5, we
+  // get 3, 5, 6 and 9. The sum of these multiples is 23.  Find the sum of all
+  // the multiples of 3 or 5 below 1000.
+
+  var firstNumberTag = document.getElementById("FirstNumber");
+  var secondNumberTag = document.getElementById("SecondNumber");
+  var belowTag = document.getElementById("Below");
+  var answer1Tag = document.getElementById("Answer1");
+  var answer2Tag = document.getElementById("Answer2");
+
+  function Go() {
+    var first = Number(firstNumberTag.value);
+    var second = Number(secondNumberTag.value);
+    var below = Number(belowTag.value);
+
+    answer1Tag.innerHTML = MultiplesOf3And5BruteForce(first, second, below);
+    answer2Tag.innerHTML = MultiplesOf3And5Elegant(first, second, below);
+  }
+
+  function MultiplesOf3And5BruteForce(first, second, below) {
+    var sum = 0;
+    for (var i = 1; i < below; i++) {
+       var foundAMatch = false;
+
+        for (var j = 1; j * first < below; j++) {
+            if (j * first === i) {
+                foundAMatch = true;
+            }
+        }
+
+        for (var j = 1; j * second < below; j++) {
+            if (j * second === i) {
+                foundAMatch = true;
+            }
+        }
+
+        if (foundAMatch === true) {
+            sum = sum + i;
+        }
+    }
+
+    var answer = "Brute Force Answer: " + sum
+    console.log(answer);
+    return answer;
+  }
+
+  function MultiplesOf3And5Elegant(first, second, below) {
+    var sum = 0;
+    var n = below;
+    
+    while (n--) {
+      if (n % first === 0 || n % second === 0) {
+        sum += n;
+      }
+    }
+    
+    var answer = "Elegant Answer: " + sum
+    console.log(answer);
+    return answer;
+  }
+</script>
