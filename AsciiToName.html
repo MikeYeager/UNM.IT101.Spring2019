@@ -1,0 +1,21 @@
+<h1>ASCII to Name</h1>
+<input type="text" id="ASCII">
+<input type="button" value="Go" onclick="Go()"><br>
+<div id="Answer"></div>
+
+<script>
+    function Go() {
+        var ASCIIBox = document.getElementById("ASCII");
+        var value = ASCIIBox.value;
+
+        var array = value.split(" ");
+        var characters = "";
+
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            characters = characters + String.fromCharCode(element);
+        }
+        var AnswerTag = document.getElementById("Answer");
+        AnswerTag.innerHTML = characters;
+    }
+</script>

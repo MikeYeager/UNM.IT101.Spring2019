@@ -1,0 +1,22 @@
+<h1>Name to ASCII</h1>
+<br>
+<input type="text" id="Name">
+<input type="button" value="Convert" onclick="Convert()">
+<div id="Answer"></div>
+
+<script>
+    function Convert() {
+        var NameBox = document.getElementById("Name") ;
+        var Name = NameBox.value ;
+        var x = "" ;
+        for (let index = 0; index < Name.length; index++) {
+            const element = Name.charCodeAt(index);
+            //if (element > 64 && element < 91) {
+            if (Name[index] === Name[index].toUpperCase()) {
+                x = x + element.toString() + " " ;
+            }
+        }
+        var answerTag = document.getElementById("Answer") ;
+        answerTag.innerHTML = x ;
+    }
+</script>

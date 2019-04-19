@@ -1,0 +1,38 @@
+<h1>Fibonacci Sequence - Sum of Even Numbers Under ????</h1>
+First Number: <input type="number" id="FirstNumber" value="1"><br>
+Second Number: <input type="number" id="SecondNumber" value="2"><br>
+Threshold: <input type="number" id="Threshold" value="400000"><br><br>
+<input type="button" value="Go" onclick="Go()">
+<h2 id="Answer"></h2>
+
+<script>
+    var firstNumberBox = document.getElementById("FirstNumber");
+    var secondNumberBox = document.getElementById("SecondNumber");
+    var thresholdBox = document.getElementById("Threshold");
+    var answerTag = document.getElementById("Answer");
+
+    function Go() {
+        var firstNumber = parseInt(firstNumberBox.value);
+        var secondNumber = parseInt(secondNumberBox.value);
+        var nextNumber = firstNumber + secondNumber;
+        var threshold = parseInt(thresholdBox.value);
+        var sum = 0;
+        if (firstNumber % 2 === 0) {
+            sum = sum + firstNumber;
+        } 
+        if (secondNumber % 2 === 0) {
+            sum = sum + secondNumber;
+        }
+
+        while (nextNumber < threshold) {
+            if (nextNumber % 2 === 0) {
+                sum = sum + nextNumber;
+            }
+
+            firstNumber = secondNumber;
+            secondNumber = nextNumber;
+            nextNumber = firstNumber + secondNumber;
+        }
+        answerTag.innerHTML = "Sum of Even: " + sum.toLocaleString();
+    }
+</script>
